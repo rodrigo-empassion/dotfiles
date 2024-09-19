@@ -1,0 +1,38 @@
+[core]
+    precomposeUnicode = true
+
+[init]
+    defaultBranch = main
+
+[ssh]
+    variant = ssh
+
+[user]
+    email = rodrigo.garcia-leon@empassion.com
+    name = Rodrigo García León
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[github]
+    user = rodrigo.garcia-leon@empassion.com
+
+[advice]
+    detachedHead = false
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    cp = cherry-pick
+    re = rebase
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
