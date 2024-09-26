@@ -27,6 +27,22 @@ alias upd='brew update && brew upgrade'
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 #
+# Functions
+#
+
+djangocmd() {
+    poetry run python manage.py "$@"
+}
+
+_djangocmd() {
+    local commands
+    commands=$(poetry run python manage.py help | awk '/^  / {print $1}')
+    _arguments "1::command:($commands)"
+}
+
+compdef _djangocmd djangocmd
+
+#
 # Sources
 #
 
