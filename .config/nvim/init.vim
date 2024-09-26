@@ -11,3 +11,7 @@ set wildmode=longest,list
 filetype plugin indent on
 syntax on
 set ttyfast
+set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+
