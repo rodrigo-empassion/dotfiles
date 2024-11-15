@@ -42,6 +42,12 @@ _djangocmd() {
 
 compdef _djangocmd djangocmd
 
+_fzf_git_checkout() {
+    git branch --all --color=never | sed 's/.*\///' | fzf --preview "git log --oneline --graph --abbrev-commit --color=always {1}" | sed 's/^[ *]*//'
+}
+
+zstyle ':completion::git::checkout' completer _fzf_git_checkout
+
 #
 # Sources
 #
