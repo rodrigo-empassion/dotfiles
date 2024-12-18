@@ -30,17 +30,17 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Functions
 #
 
-djangocmd() {
+dj() {
     poetry run python manage.py "$@"
 }
 
-_djangocmd() {
+_dj() {
     local commands
     commands=$(poetry run python manage.py help | awk '/^  / {print $1}')
     _arguments "1::command:($commands)"
 }
 
-compdef _djangocmd djangocmd
+compdef _dj dj
 
 _fzf_git_checkout() {
     git branch --all --color=never | sed 's/.*\///' | fzf --preview "git log --oneline --graph --abbrev-commit --color=always {1}" | sed 's/^[ *]*//'
