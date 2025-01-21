@@ -88,3 +88,8 @@ export BAT_THEME='base16'
 # java
 #
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.12/libexec/openjdk.jdk/Contents/Home
+
+#
+# gcp
+#
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/rodrigo/.config/gcloud/application_default_credentials.json
