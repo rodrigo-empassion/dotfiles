@@ -97,4 +97,4 @@ export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.12/libexec/openjdk.jdk/Con
 #
 # gcp
 #
-export GOOGLE_APPLICATION_CREDENTIALS=/Users/rodrigo/.config/gcloud/application_default_credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
