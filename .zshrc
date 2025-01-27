@@ -54,6 +54,7 @@ zstyle ':completion::git::checkout' completer _fzf_git_checkout
 
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
+source $HOME/.config/broot/launcher/bash/br
 
 #
 # nvm
