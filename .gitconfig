@@ -30,6 +30,11 @@
     br = branch
     cp = cherry-pick
     re = rebase
+    df = diff
+    p = push
+    pl = pull
+    fa = fetch --all --prune
+    amend = commit --amend
 
 [merge]
     conflictstyle = diff3
