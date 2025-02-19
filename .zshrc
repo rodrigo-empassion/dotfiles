@@ -24,7 +24,7 @@ alias la='eza -a'
 alias ll='eza -l'
 alias g='git'
 alias upd='brew update && brew upgrade'
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias df='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 #
 # Functions
