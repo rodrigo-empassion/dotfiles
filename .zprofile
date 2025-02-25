@@ -49,6 +49,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/dev/scripts/bin
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
@@ -103,3 +104,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_
 # zsh-vi-mode
 #
 export ZVM_INIT_MODE=sourcing
+
+#
+# scripts
+#
+export SCRIPTS_LIB_DIR="$HOME/dev/scripts/lib"
