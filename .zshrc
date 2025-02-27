@@ -39,7 +39,7 @@ _dj() {
     local commands
     local cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/django_completions_cache"
 
-    if [[ -f "$cache_file" && $(find "$cache_file" -mmin -40320) ]]; then
+    if [[ -f "$cache_file" ]]; then
         commands=$(cat "$cache_file")
     else
         commands=$(poetry run python manage.py help | awk '/^  / {print $1}')
