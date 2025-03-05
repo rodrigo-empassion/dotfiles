@@ -32,9 +32,11 @@
     re = rebase
     df = diff
     p = push
+    pf = push --force
     pl = pull
     fa = fetch --all --prune
-    amend = commit --amend
+    ca = commit --amend
+    can = commit --amend --no-edit
 
 [merge]
     conflictstyle = diff3
