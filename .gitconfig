@@ -24,19 +24,20 @@
     detachedHead = false
 
 [alias]
-    co = checkout
-    ci = commit
-    st = status
+    a = add
     br = branch
+    ca = commit --amend
+    can = commit --amend --no-edit
+    ci = commit
+    co = checkout
     cp = cherry-pick
-    re = rebase
     df = diff
+    fa = fetch --all --prune
+    st = status
     p = push
     pf = push --force
     pl = pull
-    fa = fetch --all --prune
-    ca = commit --amend
-    can = commit --amend --no-edit
+    re = rebase
 
 [merge]
     conflictstyle = diff3
