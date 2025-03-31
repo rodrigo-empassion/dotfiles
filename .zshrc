@@ -17,7 +17,6 @@ fi
 alias c='bat'
 alias cp='nocorrect cp'
 alias rm='nocorrect rm'
-alias f='fasd -f'
 alias l='eza'
 alias ls='eza'
 alias la='eza -a'
@@ -74,6 +73,12 @@ zstyle ':completion::git::checkout' completer _fzf_git_checkout
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
 source $HOME/.config/broot/launcher/bash/br
+
+#
+# Evals
+#
+
+eval "$(zoxide init zsh)"
 
 #
 # nvm
