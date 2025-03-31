@@ -81,13 +81,11 @@ fi
 # 
 # fzf
 #
-
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 #
 # bat
 #
- 
 export BAT_THEME='ansi'
 
 #
