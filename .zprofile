@@ -81,29 +81,35 @@ fi
 # 
 # fzf
 #
+
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 #
 # bat
 #
+
 export BAT_THEME='ansi'
 
 #
 # java
 #
+
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.12/libexec/openjdk.jdk/Contents/Home
 
 #
 # gcp
 #
+
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
 #
 # zsh-vi-mode
 #
+
 export ZVM_INIT_MODE=sourcing
 
 #
 # scripts
 #
+
 export SCRIPTS_LIB_DIR="$HOME/dev/scripts/lib"
