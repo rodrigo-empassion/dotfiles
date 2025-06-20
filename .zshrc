@@ -26,6 +26,7 @@ alias upd='brew update && brew upgrade'
 alias df='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias delbr="git br | fzf -m | xargs git branch -D"
 alias tf='terraform'
+alias k='kubectl'
 
 #
 # Functions
