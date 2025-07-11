@@ -88,7 +88,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # bat
 #
 
-export BAT_THEME='ansi'
+export BAT_THEME='DarkNeon'
 
 #
 # java
