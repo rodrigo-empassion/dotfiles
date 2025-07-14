@@ -112,3 +112,11 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 nvm use default --silent
+
+#
+# spaceship
+#
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_PREFIX="at "
+SPACESHIP_TIME_SUFFIX=" "
+SPACESHIP_TIME_FORMAT="%D{%H:%M:%S}"
