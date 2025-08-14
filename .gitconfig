@@ -1,4 +1,5 @@
 [core]
+    pager = delta
     precomposeUnicode = true
 
 [init]
@@ -44,3 +45,10 @@
 
 [diff]
     colorMoved = default
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
