@@ -1,6 +1,7 @@
 [core]
     pager = delta
     precomposeUnicode = true
+    editor = nvim
 
 [init]
     defaultBranch = main
@@ -44,6 +45,7 @@
     conflictstyle = diff3
 
 [diff]
+    tool = delta
     colorMoved = default
 
 [interactive]
@@ -52,3 +54,5 @@
 [delta]
     navigate = true
     light = false
+    side-by-side = true
+    line-numbers = true
