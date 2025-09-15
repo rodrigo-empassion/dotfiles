@@ -51,6 +51,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $HOME/dev/scripts/bin
   $HOME/.local/bin
+  $HOME/.yarn/bin
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
