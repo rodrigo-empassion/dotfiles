@@ -1,0 +1,16 @@
+theme = Rose Pine
+font-family = "MonaspiceNe Nerd Font"
+font-size = 16
+command = "/opt/homebrew/bin/zellij --layout default"
+window-decoration = auto
+maximize = true
+background-opacity = 0.95
+window-padding-x = 6
+window-padding-y = 6
+cursor-style = bar
+confirm-close-surface = false
+window-height = 1000
+window-width = 1000
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind
