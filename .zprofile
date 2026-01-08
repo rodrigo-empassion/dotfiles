@@ -110,7 +110,6 @@ export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.12/libexec/openjdk.jdk/Con
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 export GOOGLE_CLOUD_PROJECT_ID=empassion-development
-export GOOGLE_CLOUD_PROJECT="empassion-development"
 
 #
 # zsh-vi-mode

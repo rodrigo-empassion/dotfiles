@@ -116,6 +116,7 @@ nvm use default --silent
 #
 # spaceship
 #
+
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_PREFIX="at "
 SPACESHIP_TIME_SUFFIX=" "
