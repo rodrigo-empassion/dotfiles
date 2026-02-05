@@ -32,15 +32,6 @@ alias k='kubectl'
 # Functions
 #
 
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
 dj() {
     poetry run python manage.py "$@"
 }
@@ -74,7 +65,6 @@ zstyle ':completion::git::checkout' completer _fzf_git_checkout
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'
 source <(fzf --zsh)
-source $HOME/.config/broot/launcher/bash/br
 source $HOME/.secrets
 
 #
@@ -84,39 +74,8 @@ source $HOME/.secrets
 eval "$(zoxide init zsh)"
 
 #
-# nvm
-#
-
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
-nvm use default --silent
-
-#
 # spaceship
 #
-
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_PREFIX="at "
 SPACESHIP_TIME_SUFFIX=" "
