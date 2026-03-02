@@ -44,6 +44,8 @@ path=(
   $path
 )
 
+export DYLD_FALLBACK_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+
 #
 # Less
 #
