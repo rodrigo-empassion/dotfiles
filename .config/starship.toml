@@ -1,0 +1,44 @@
+# Starship prompt — Rosé Pine palette
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$python\
+$rust\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+$character"""
+
+[directory]
+style = "bold #ebbcba"
+
+[git_branch]
+style = "bold #c4a7e7"
+
+[git_status]
+style = "bold #f6c177"
+
+[python]
+style = "#c4a7e7"
+
+[rust]
+style = "#ebbcba"
+
+[cmd_duration]
+style = "#908caa"
+min_time = 2_000
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+style = "#6e6a86"
+time_format = "%I:%M %p"
+
+[character]
+success_symbol = "[❯](bold #31748f)"
+error_symbol = "[❯](bold #eb6f92)"

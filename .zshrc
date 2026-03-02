@@ -1,14 +1,34 @@
 #
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+# History
 #
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+[[ -d "${XDG_DATA_HOME:-$HOME/.local/share}/zsh" ]] || mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
+#
+# Options
+#
+
+setopt AUTO_CD AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
+setopt NO_BG_NICE NO_HUP LONG_LIST_JOBS
+setopt CORRECT
+
+#
+# Completion
+#
+
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
 fi
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 #
 # Aliases
@@ -23,14 +43,15 @@ alias la='eza -a'
 alias ll='eza -l'
 alias g='git'
 alias upd='brew update && brew upgrade'
-alias dotf='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias delbr="git br | fzf -m | xargs git branch -D"
+alias delbr='git br | fzf -m | xargs git branch -D'
 alias tf='terraform'
 alias k='kubectl'
 
 #
 # Functions
 #
+
+dotf() { git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"; }
 
 dj() {
     poetry run python manage.py "$@"
@@ -52,18 +73,13 @@ _dj() {
 
 compdef _dj dj
 
-_fzf_git_checkout() {
-    git branch --all --color=never | sed 's/.*\///' | fzf --preview "git log --oneline --graph --abbrev-commit --color=always {1}" | sed 's/^[ *]*//'
-}
-
-zstyle ':completion::git::checkout' completer _fzf_git_checkout
-
 #
 # Sources
 #
 
+source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'
+source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 source <(fzf --zsh)
 source $HOME/.secrets
 
@@ -72,11 +88,4 @@ source $HOME/.secrets
 #
 
 eval "$(zoxide init zsh)"
-
-#
-# spaceship
-#
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_TIME_PREFIX="at "
-SPACESHIP_TIME_SUFFIX=" "
-SPACESHIP_TIME_FORMAT="%D{%H:%M:%S}"
+eval "$(starship init zsh)"
