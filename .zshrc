@@ -62,15 +62,15 @@ wt() {
 
     while [[ $# -gt 0 ]]; do
         case $1 in
-            --new-branch) new_branch=$2; shift 2 ;;
             --base-branch) base_branch=$2; shift 2 ;;
             --python) python_version=$2; shift 2 ;;
-            *) echo "Unknown option: $1"; return 1 ;;
+            -*) echo "Unknown option: $1"; return 1 ;;
+            *) new_branch=$1; shift ;;
         esac
     done
 
     if [[ -z $new_branch ]]; then
-        echo "Usage: wt --new-branch <branch> [--base-branch <branch>] [--python <version>]"
+        echo "Usage: wt <branch> [--base-branch <branch>] [--python <version>]"
         return 1
     fi
 
@@ -81,6 +81,8 @@ wt() {
     poetry install --with dev
     cp ../main/.env .
     sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$new_branch/" .env
+    code .
+    cd ..
 }
 
 _dj() {
