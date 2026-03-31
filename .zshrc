@@ -58,32 +58,29 @@ dj() {
 }
 
 wt() {
-    local new_branch="" base_branch="" dir="" python_version="3.13"
+    local new_branch="" base_branch="main" python_version="3.13"
 
     while [[ $# -gt 0 ]]; do
         case $1 in
             --new-branch) new_branch=$2; shift 2 ;;
             --base-branch) base_branch=$2; shift 2 ;;
-            --dir) dir=$2; shift 2 ;;
             --python) python_version=$2; shift 2 ;;
             *) echo "Unknown option: $1"; return 1 ;;
         esac
     done
 
-    if [[ -z $new_branch || -z $base_branch ]]; then
-        echo "Usage: wt --new-branch <branch> --base-branch <branch> [--dir <dir>] [--python <version>]"
+    if [[ -z $new_branch ]]; then
+        echo "Usage: wt --new-branch <branch> [--base-branch <branch>] [--python <version>]"
         return 1
     fi
 
-    dir=${dir:-$new_branch}
-
-    git worktree add -b "$new_branch" "$dir" "$base_branch" || return 1
-    cd "$dir" || return 1
+    git worktree add -b "$new_branch" "$new_branch" "$base_branch" || return 1
+    cd "$new_branch" || return 1
     mise shell python@"$python_version"
     poetry env use "$(mise which python)"
     poetry install --with dev
     cp ../main/.env .
-    sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$dir/" .env
+    sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$new_branch/" .env
 }
 
 _dj() {
