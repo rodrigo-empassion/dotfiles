@@ -81,7 +81,7 @@ source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.8.0/share/zsh-syntax-highl
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 source <(fzf --zsh)
-source $HOME/.secrets
+source $HOME/.secrets/env
 
 #
 # Evals
