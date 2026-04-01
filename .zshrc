@@ -86,7 +86,7 @@ wt() {
     poetry env use "$(mise which python)"
     poetry install --with dev
     cp ../main/.env .
-    sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$new_branch/" .env
+    sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$dir/" .env
     code .
     cd ..
 }
