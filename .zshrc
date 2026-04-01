@@ -79,7 +79,7 @@ wt() {
         return 1
     fi
 
-    local dir="${new_branch#emp-[0-9]##-}"
+    local dir="${new_branch#emp-[0-9]*-}"
     git worktree add -b "$new_branch" "$dir" "$base_branch" || return 1
     cd "$dir" || return 1
     mise shell python@"$python_version"
