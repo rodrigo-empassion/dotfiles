@@ -58,7 +58,7 @@ dj() {
 }
 
 wt() {
-    local repo_name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
+    local repo_name=$(basename "$PWD")
     local new_branch="" base_branch="main" python_version="3.13" node_version="22"
 
     while [[ $# -gt 0 ]]; do
