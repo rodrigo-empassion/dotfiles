@@ -74,8 +74,14 @@ wt() {
         return 1
     fi
 
-    git worktree add -b "$new_branch" "$new_branch" "$base_branch" || return 1
-    cd "$new_branch" || return 1
+    if [[ ! $new_branch =~ ^emp-[0-9]+-.+ ]]; then
+        echo "Branch must follow the format: emp-<number>-<name>"
+        return 1
+    fi
+
+    local dir="${new_branch#emp-[0-9]##-}"
+    git worktree add -b "$new_branch" "$dir" "$base_branch" || return 1
+    cd "$dir" || return 1
     mise shell python@"$python_version"
     poetry env use "$(mise which python)"
     poetry install --with dev
