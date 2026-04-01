@@ -58,19 +58,21 @@ dj() {
 }
 
 wt() {
-    local new_branch="" base_branch="main" python_version="3.13"
+    local repo_name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
+    local new_branch="" base_branch="main" python_version="3.13" node_version="22"
 
     while [[ $# -gt 0 ]]; do
         case $1 in
             --base-branch) base_branch=$2; shift 2 ;;
             --python) python_version=$2; shift 2 ;;
+            --node) node_version=$2; shift 2 ;;
             -*) echo "Unknown option: $1"; return 1 ;;
             *) new_branch=$1; shift ;;
         esac
     done
 
     if [[ -z $new_branch ]]; then
-        echo "Usage: wt <branch> [--base-branch <branch>] [--python <version>]"
+        echo "Usage: wt <branch> [--base-branch <branch>] [--python <version>] [--node <version>]"
         return 1
     fi
 
@@ -82,11 +84,28 @@ wt() {
     local dir="${new_branch#emp-[0-9]*-}"
     git worktree add -b "$new_branch" "$dir" "$base_branch" || return 1
     cd "$dir" || return 1
-    mise shell python@"$python_version"
-    poetry env use "$(mise which python)"
-    poetry install --with dev
     cp ../main/.env .
-    sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$dir/" .env
+
+    case $repo_name in
+        service-api)
+            mise shell python@"$python_version"
+            poetry env use "$(mise which python)"
+            poetry install --with dev
+            sed -i '' "s/^\(DATABASE_URL=.*\)/\1-$dir/" .env
+            createdb "empassion-$dir"
+            ;;
+        empassion-ui)
+            mise shell node@"$node_version"
+            yarn
+            yarn generate-env
+            ;;
+        *)
+            echo "Unknown repo: $repo_name"
+            cd ..
+            return 1
+            ;;
+    esac
+
     code .
     cd ..
 }
