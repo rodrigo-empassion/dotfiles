@@ -126,6 +126,28 @@ _dj() {
 
 compdef _dj dj
 
+dropdbs() {
+    local dbs
+    dbs=$(psql -AtqX -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname != 'postgres'" postgres) || return 1
+
+    local selected
+    selected=$(echo "$dbs" | fzf --multi --header="Select databases to drop (TAB to multi-select)")
+
+    if [[ -z $selected ]]; then
+        echo "No databases selected"
+        return 0
+    fi
+
+    echo "Will drop:"
+    echo "$selected"
+    read -q "confirm?Are you sure? [y/N] " || { echo; return 0; }
+    echo
+
+    echo "$selected" | while read -r db; do
+        dropdb "$db" && echo "Dropped $db" || echo "Failed to drop $db"
+    done
+}
+
 #
 # Sources
 #
