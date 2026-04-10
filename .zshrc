@@ -45,6 +45,7 @@ alias g='git'
 alias upd='brew update && brew upgrade'
 alias tf='terraform'
 alias k='kubectl'
+alias py="python3"
 
 #
 # Functions
