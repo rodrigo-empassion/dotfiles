@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "83d90f339defdb109a6ede333865a66ffc7ef6aa" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "1ccbd3720b5064146b16d7761957da302ea1e86f" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "7127911cc824a1d2f600492edd9667b476cf3eda" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "426dbebe06b5c69fd846ceb17b42e12f890aedf1" },
@@ -19,7 +19,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "51feb0ada33d18f3c5c71ffb46005dbf8b33bef4" },
   "mason.nvim": { "branch": "main", "commit": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9" },
   "mini.ai": { "branch": "main", "commit": "7e10ce8468c0fce4f527ae2c0e5c484f7667f73d" },
-  "mini.animate": { "branch": "main", "commit": "72e04cf86ccbcd50efb53c2b87397386195bc3a7" },
+  "mini.animate": { "branch": "main", "commit": "552c5d4998678eaffaa0a10cf5105823a6fdfcd4" },
   "mini.hipatterns": { "branch": "main", "commit": "9eff319bbe66adfaf781a0d0e174baa08ba94909" },
   "mini.icons": { "branch": "main", "commit": "bac6317300e205335df425296570d84322730067" },
   "mini.pairs": { "branch": "main", "commit": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9" },
