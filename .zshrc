@@ -162,6 +162,13 @@ source $HOME/.secrets/env
 # Evals
 #
 
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rodrigo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rodrigo/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rodrigo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rodrigo/google-cloud-sdk/completion.zsh.inc'; fi
