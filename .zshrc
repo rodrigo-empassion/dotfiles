@@ -43,6 +43,7 @@ alias la='eza -a'
 alias ll='eza -l'
 alias g='git'
 alias upd='brew update && brew upgrade'
+alias delbr='git br | fzf -m | xargs git branch -D'
 alias tf='terraform'
 alias k='kubectl'
 alias py="python3"
